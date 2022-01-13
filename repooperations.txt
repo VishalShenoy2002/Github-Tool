@@ -1,8 +1,7 @@
-The Following Are The Operators You Can Perform on Repositories:
-[1] View Repositories
-[2] Download a Repository
-[3] Download all Repositories
-[4] Download and Extract a Repository
-[5] Download and Extract all Repositories
+The Following Are The Operators You Can Perform on the Selected Repository:
+
+[1] Download a Repository
+[2] Download and Extract a Repository
+[3] Display License
 
 Select an Option to Perform the Operation.

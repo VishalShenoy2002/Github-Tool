@@ -55,6 +55,41 @@ class Repository:
         print("[*] Downloaded and Extracted {} Repository...".format(repository_name))
         os.remove('./{}.zip'.format(repository_name))
 
+    def displayLicense(self,repo_name):
+
+        license_present=False
+        license_displayed=False
+        print("\n\n")
+
+        repopath="./{}-main/".format(repo_name)
+        for repofile in os.listdir(repopath):
+            if "LICENSE" in repofile:
+                license_present=True
+               
+        if license_present==True:
+            while license_displayed==False:
+                try:
+                    repopath="./{}-main/".format(repo_name)
+                    for repofile in os.listdir(repopath):
+                        if "LICENSE" in repofile:
+                            with open(os.path.join(repopath,repofile),'r') as f:
+                                print(f.read())
+                                f.close()
+                                license_displayed=True
+
+                except FileNotFoundError:
+                    option=input("Do you want ot Download and Extract {} Repository First (y/n) >> ".format(repo_name))
+                    if option=='y':
+                        self.downloadAndExtractRepo(repo_name)
+                        license_displayed=False
+                    elif option=='n':
+                        print("\nLicense Can't Be Displayed as Repository Not Present in Local Device.")
+                        break
+                    else:
+                        print("Type 'y' or 'n'.")
+        else:
+            print("License Not Present in Repository")
+            
 
 
 

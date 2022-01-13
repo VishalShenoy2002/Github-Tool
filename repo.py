@@ -1,6 +1,6 @@
 from imports import *    
 
-class Repository:    
+class Repository:
 
     def __init__(self,username):
 
@@ -35,7 +35,6 @@ class Repository:
 
         with open("./{}.zip".format(repository_name),"wb") as folder:
             folder.write(self.request.content)
-
 
     def downloadAndExtractRepo(self,repository_name):
 

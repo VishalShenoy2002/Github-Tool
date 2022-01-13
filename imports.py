@@ -7,3 +7,4 @@ import zipfile
 import time
 
 from repo import Repository
+from issues import Issues

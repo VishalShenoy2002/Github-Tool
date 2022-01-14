@@ -18,7 +18,7 @@ print("\n[-] You can visit {} for more information about the user...".format(rep
 time.sleep(2)
 try:
     # Creating the Main Menu
-    with open("mainmenu.txt","r") as f:
+    with open("./files/mainmenu.txt","r") as f:
         print(f.read())
         f.close()
 
@@ -41,7 +41,7 @@ except KeyboardInterrupt:
 
 while True:
     try:
-        with open("helptext.txt",'r') as f:
+        with open("./files/helptext.txt",'r') as f:
             print(f.read())
             f.close()
 
@@ -49,7 +49,7 @@ while True:
 
         if repo_option==1:
             
-            with open("repooperations.txt","r") as f:
+            with open("./files/repooperations.txt","r") as f:
                 print(f.read())
                 f.close()
 

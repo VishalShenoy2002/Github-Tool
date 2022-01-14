@@ -58,26 +58,28 @@ class Repository:
 
         license_present=False
         license_displayed=False
+        count=0
         print("\n\n")
         
-        try:
-            repopath="./{}-main/".format(repo_name)
-            for repofile in os.listdir(repopath):
-                if "LICENSE" in repofile:
-                    license_present=True
-        except FileNotFoundError:
-            option=input("Do you want ot Download and Extract {} Repository First (y/n) >> ".format(repo_name))
-            if option=='y':
-                self.downloadAndExtractRepo(repo_name)
-                license_displayed=False
-            elif option=='n':
-                print("\nLicense Can't Be Displayed as Repository Not Present in Local Device.")
-            
-            else:
-                print("Type 'y' or 'n'.")
+        while (license_present==False and count!=3):
+            count+=1
+            try:
+                repopath="./{}-main/".format(repo_name)
+                for repofile in os.listdir(repopath):
+                    if "LICENSE" in repofile:
+                        license_present=True
+            except FileNotFoundError:
+                option=input("Do you want ot Download and Extract {} Repository First (y/n) >> ".format(repo_name))
+                if option=='y':
+                    self.downloadAndExtractRepo(repo_name)
+                    license_present=False
+                elif option=='n':
+                    print("\nLicense Can't Be Displayed as Repository Not Present in Local Device.")
+                    break
+                else:
+                    print("Type 'y' or 'n'.")
 
-        if license_present==True:
-            while license_displayed==False:
+            while (license_displayed==False and license_present==True):
                 try:
                     repopath="./{}-main/".format(repo_name)
                     for repofile in os.listdir(repopath):

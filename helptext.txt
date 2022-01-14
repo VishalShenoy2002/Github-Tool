@@ -2,10 +2,8 @@
 
 [1] Repositories
 [2] See Issues
-[3] See Pull Requests
-[4] Select Different Repository
+[3] Select Different Repository
 
 Select [1] if you want to perform operations on Repositories.
 Select [2] if you want to see Issues
-Select [3] if you want to See Pull Requests of the Repository
-Select [4] if you want to Select Different Repository
+Select [3] if you want to Select Different Repository

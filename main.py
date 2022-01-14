@@ -1,23 +1,43 @@
 from imports import *
 
+print('''\n
 
+   ____ _ _   _           _       _____           _ 
+  / ___(_) |_| |__  _   _| |__   |_   _|__   ___ | |
+ | |  _| | __| '_ \| | | | '_ \    | |/ _ \ / _ \| |
+ | |_| | | |_| | | | |_| | |_) |   | | (_) | (_) | |
+  \____|_|\__|_| |_|\__,_|_.__/    |_|\___/ \___/|_|
+                                                    
+\n''')
 username=input("Enter Github Username >> ")
 repository=Repository(username)
 issues=Issues(username)
 
+print("\n[-] You can visit {} for more information about the user...".format(repository.userurl))
 
-# Creating the Main Menu
-with open("mainmenu.txt","r") as f:
-    print(f.read())
-    f.close()
-repo_list=["[{}] {}".format(i[0]+1,i[1]) for i in enumerate(repository.listAllRepos().keys())]
-for i in repo_list:
-    print(i)
-selected_repo_number=int(input("Enter Repository Number to select the Repository >> "))
+time.sleep(2)
+try:
+    # Creating the Main Menu
+    with open("mainmenu.txt","r") as f:
+        print(f.read())
+        f.close()
 
-for repo in repo_list:
-    if str(selected_repo_number) in repo:
-        selected_reponame = repo.split(" ")[-1]
+    repo_list=["[{}] {}".format(i[0]+1,i[1]) for i in enumerate(repository.listAllRepos().keys())]
+
+    for i in repo_list:
+        print(i)
+
+    selected_repo_number=int(input("Enter Repository Number to select the Repository >> "))
+
+    for repo in repo_list:
+        if str(selected_repo_number) in repo:
+            selected_reponame = repo.split(" ")[-1]
+
+
+except KeyboardInterrupt:
+    print("\nLeaving Github Tool...")
+    sys.exit(0)
+
 
 while True:
     try:
@@ -62,19 +82,16 @@ while True:
                 for issue in list_of_issues:
                     if str(issue_number) in issue:
                         selected_issue=issue.split("] ")[-1]
+
                 issues.readIssue(selected_issue)        
         
-        
-        # Option-3: See Pull Requests
+        # Option-3: Select Different Repository
         elif repo_option==3:
-            print("You are in Pull Request")
 
-        
-        # Option-4: Select Different Repository
-        elif repo_option==4:
             repo_list=["[{}] {}".format(i[0]+1,i[1]) for i in enumerate(repository.listAllRepos().keys())]
             for i in repo_list:
                 print(i)
+
             selected_repo_number=int(input("Enter Repository Number to select the Repository >> "))
 
             for repo in repo_list:

@@ -1,7 +1,7 @@
 The Following Are The Operators You Can Perform on the Selected Repository:
 
-[1] Download a Repository
-[2] Download and Extract a Repository
+[1] Download the Repository
+[2] Download and Extract the Repository
 [3] Display License
 
 Select an Option to Perform the Operation.

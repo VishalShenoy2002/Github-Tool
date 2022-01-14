@@ -1,6 +1,6 @@
 
 
-[1] Repositories
+[1] Repositories Operations
 [2] See Issues
 [3] Select Different Repository
 
